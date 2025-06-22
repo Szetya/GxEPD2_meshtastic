@@ -36,6 +36,7 @@
 #endif
 
 #include "GxEPD2_EPD.h"
+#include "epd/GxEPD2_122_T61.h"
 #include "epd/GxEPD2_154.h"
 #include "epd/GxEPD2_154_D67.h"
 #include "epd/GxEPD2_154_T8.h"
