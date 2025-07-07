@@ -252,8 +252,9 @@ void GxEPD2_122_T61::refresh(bool partial_update_mode)
 void GxEPD2_122_T61::refresh(int16_t x, int16_t y, int16_t w, int16_t h)
 {
   if (_initial_refresh) return refresh(false); // initial update needs be full update
-  x -= x % 8; // byte boundary
-  w -= x % 8; // byte boundary
+  int16_t x_mod = x % 8; // store original x % 8
+  x -= x_mod; // align x to byte boundary
+  w -= x_mod; // adjust w using original x % 8
   int16_t x1 = x < 0 ? 0 : x; // limit
   int16_t y1 = y < 0 ? 0 : y; // limit
   int16_t w1 = x + w < int16_t(WIDTH) ? w : int16_t(WIDTH) - x; // limit
