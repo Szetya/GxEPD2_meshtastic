@@ -173,6 +173,8 @@ void GxEPD2_122_T61::_writeImagePart(uint8_t command, const uint8_t bitmap[], in
   delay(1); // yield() to avoid WDT on ESP8266 and ESP32
 }
 
+// Note: The `color` parameter is intentionally ignored in this monochrome driver.
+// It is included for compatibility with other methods or future extensions.
 void GxEPD2_122_T61::writeImage(const uint8_t* black, const uint8_t* color, int16_t x, int16_t y, int16_t w, int16_t h, bool invert, bool mirror_y, bool pgm)
 {
   if (black)
